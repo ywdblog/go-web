@@ -1,0 +1,7 @@
+[app]
+consumerSyncTopics = ["]
+consumerArticleCopyrightLogoTopics = []
+producerQueueArticleTopic = ""
+consumerArticleQueueTopics = []
+articleTagsTaskTopic = ""
+esArticleIndexName = ""

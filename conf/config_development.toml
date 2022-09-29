@@ -1,0 +1,62 @@
+[server]
+name = "goweb.dev.article"
+
+[server.http]
+addr = ":7682"
+
+[server.pprof]
+addr = ":7683"
+
+[server.log]
+level = "info"
+development = true 
+outputPath = "logs/runtime-dev.log"
+[server.log.rotate]
+MaxSize = 1000
+MaxAge = 10
+LocalTime = true
+Compress = true
+[server.trace.reporter]
+LocalAgentHostPort = "trace.go.jaeger.agent:6831"
+[server.metrics.prometheus]
+addr = ":7484"
+
+[[kafka]]
+name = "article_kafka_sync"
+addrs = [":9092"]
+[kafka.consumer]
+groupId = "svc:article-dev"
+
+[[kafka]]
+name = "article_kafka_logo"
+addrs = [":9092"]
+[kafka.consumer]
+groupId = "svc:article-dev"
+
+[[kafka]]
+name = "article_kafka_queue"
+addrs = [":9092"]
+[kafka.consumer]
+groupId = "svc:article-dev"
+
+[[redis]]
+name = "article_redis"
+host = ""
+port = 6379
+auth = ""
+db = 0
+
+[[database]]
+name = "article_db"
+host = ""
+port = 3306
+db = ""
+user = ""
+pass = ""
+
+[[elasticsearch]]
+name = "article_es"
+addrs = ["http://:9200", ]
+username = ""
+password = ""
+customTranport = false
